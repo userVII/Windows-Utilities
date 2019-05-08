@@ -1,5 +1,8 @@
+#Edit me
 $csvSaveLocation = ""
-$computers = Get-ADComputer -Filter * -SearchBase "" | Select-Object -ExpandProperty Name
+$searchBase = ""
+##
+$computers = Get-ADComputer -Filter * -SearchBase $searchBase | Select-Object -ExpandProperty Name
 $PCCompliance = @()
 
 $initcounter = 1
