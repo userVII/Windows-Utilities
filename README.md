@@ -13,3 +13,13 @@ Security Settings -> Advanced Audit Policy configuration -> Audit Policies -> De
 The later method you can use EventID 6416 in a Scheduled Task to fire the script. This event will have 
 the DeviceDescription built into the XML. You then can use Get-Volume -FileSystemLabel "LABEL" to get
 the drive letter more easily.
+
+Example XML for PNP audit route:
+
+\<QueryList>
+  \<Query Id="0" Path="Security">
+    \<Select Path="Security">
+        \*[System[(EventID=6416)]] and *[EventData[(Data[@Name="DeviceDescription"]="DEVICENAME")]]
+    \</Select>
+  \</Query>
+\</QueryList>
