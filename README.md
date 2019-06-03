@@ -23,3 +23,6 @@ Example XML for PNP audit route:
     \</Select>
   \</Query>
 \</QueryList>
+
+# Clean Win 10 Apps
+Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't need this and can use other Group Policy based solutions.
