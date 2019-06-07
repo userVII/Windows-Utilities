@@ -27,9 +27,11 @@ Example XML for PNP audit route:
 ## [Clean_Win10Apps](https://github.com/userVII/Windows-10-Utilities/blob/master/Clean_Win10Apps.ps1)
 Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't need this and can use other Group Policy based solutions.
 
-## [Utility_BulkPSFileSigner](https://github.com/userVII/Windows-10-Utilities/blob/master/Utility_BulkPSFileSigner.ps1)
+## Utility_PSFileSigners
+### [Bulk Signer](https://github.com/userVII/Windows-10-Utilities/blob/master/Utility_BulkPSFileSigner.ps1)
 If you have a code Signing Certificate installed
 
 Open up the Current User\Personal\Certificates
 
 Get the Thumbprint Value and plug it into the script
+### [Single File Signer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_SinglePSFileSigner.ps1)
