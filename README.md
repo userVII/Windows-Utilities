@@ -1,4 +1,4 @@
-# Windows 10 Utilities
+# Windows Utilities
 Collection of handy Windows 10 Scripts
 
 ## [Scan_Win10Compliance](https://github.com/userVII/Windows-10-Utilities/blob/master/Scan_Win10Compliance.ps1)
