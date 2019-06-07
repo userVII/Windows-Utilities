@@ -1,11 +1,11 @@
 # Windows 10 Utilities
 Collection of handy Windows 10 Scripts
 
-# Scan-Win10Compliance
+# Scan_Win10Compliance
 Scans an OU for Win 10 MDM Compliance
 -Useful to compare against SCCM results
 
-# Custom Event Trigger
+# TaskEvents_CustomTrigger
 This script is for filtered results based on a USB being plugged in. This version uses 
 EventID 2003 in Microsoft-Windows-DriverFrameworks-UserMode/Operational. Another method is
 to enable PNP logging in Computer Configuration -> Policies -> Windows Settings ->
@@ -24,5 +24,5 @@ Example XML for PNP audit route:
   \</Query>
 \</QueryList>
 
-# Clean Win 10 Apps
+# Clean_Win10Apps
 Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't need this and can use other Group Policy based solutions.
