@@ -20,6 +20,7 @@ function Sign_PowerShellFiles($pathToSign){
         if($filesCount -gt 1){
             Start-Sleep -Seconds 15 #To not blow up their time server
         }
+        $counter++
     }
 }
 
