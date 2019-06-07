@@ -15,7 +15,7 @@ the DeviceDescription built into the XML. You then can use Get-Volume -FileSyste
 the drive letter more easily.
 
 Example XML for PNP audit route:
-`
+```
 <QueryList>
   <Query Id="0" Path="Security">
     \Select Path="Security">
@@ -23,6 +23,6 @@ Example XML for PNP audit route:
     </Select>
   </Query>
 </QueryList>
-`
+```
 ## [Clean_Win10Apps](https://github.com/userVII/Windows-10-Utilities/blob/master/Clean_Win10Apps.ps1)
 Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't need this and can use other Group Policy based solutions.
