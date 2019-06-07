@@ -6,7 +6,7 @@ $codeSigningCertificateThumbprint = ""
 $cert = Get-ChildItem Cert:\CurrentUser\My\$codeSigningCertificateThumbprint -CodeSigningCert 
 $timeStampURL = "http://timestamp.comodoca.com/authenticode"
 
-foreach($file in $filestosignpath){
+foreach($file in $filesToSignPaths){
     if($cert) {
         Set-AuthenticodeSignature -filepath "$filesRoot\$file" -cert $cert -IncludeChain All -TimeStampServer $timeStampURL
     }
