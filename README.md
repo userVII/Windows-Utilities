@@ -29,9 +29,9 @@ Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't
 
 ## Utility_PSFileSigners
 ### [Bulk Signer](https://github.com/userVII/Windows-10-Utilities/blob/master/Utility_BulkPSFileSigner.ps1)
+### [Single File Signer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_SinglePSFileSigner.ps1)
 If you have a code Signing Certificate installed
 
 Open up the Current User\Personal\Certificates
 
 Get the Thumbprint Value and plug it into the script
-### [Single File Signer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_SinglePSFileSigner.ps1)
