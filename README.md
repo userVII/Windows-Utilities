@@ -5,6 +5,9 @@ Collection of handy Windows 10 Scripts
 Scans an OU for Win 10 MDM Compliance
 -Useful to compare against SCCM results
 
+## [Scan_StaleWorkstations](https://github.com/userVII/Windows-Utilities/blob/master/Scan_StaleWorkstations.ps1)
+Simple AD tool to find stale Workstation objects and do something with them. In this case, mark the description they are old.
+
 ## [TaskEvents_CustomTrigger](https://github.com/userVII/Windows-10-Utilities/blob/master/TaskEvents_CustomTrigger.ps1)
 This script is for filtered results based on a USB being plugged in. This version uses 
 EventID 2003 in Microsoft-Windows-DriverFrameworks-UserMode/Operational. Another method is
