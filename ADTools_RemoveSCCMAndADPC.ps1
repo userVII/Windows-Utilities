@@ -1,3 +1,5 @@
+#Can be installed from here https://www.microsoft.com/en-us/download/details.aspx?id=46681
+#If the signature isn't trusted you can self sign here C:\Program Files (x86)\ConfigurationManager\Console\bin\ConfigurationManager\ConfigurationManager.psd1
 Import-Module (Join-Path $(Split-Path $env:SMS_ADMIN_UI_PATH) ConfigurationManager.psd1)
 
 # Site configuration
