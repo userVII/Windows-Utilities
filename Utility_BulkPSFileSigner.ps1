@@ -1,5 +1,12 @@
 $certFriendlyName = ""
 $codeSigningCertificateThumbprint = ""
+$certSubject = ""
+
+if(($null -eq $codeSigningCertificateThumbprint) -or ($codeSigningCertificateThumbprint -eq "")){
+    $retrievedthumbprint = Get-ChildItem cert: -Recurse | Where-Object{ $_.Subject –like $certSubject } | Select-Object Thumbprint -Unique
+    $codeSigningCertificateThumbprint = $retrievedthumbprint.Thumbprint
+}
+
 $cert = Get-ChildItem Cert:\CurrentUser\My\$codeSigningCertificateThumbprint -CodeSigningCert 
 $timeStampURL = "http://timestamp.comodoca.com/authenticode"
 
