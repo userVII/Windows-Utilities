@@ -1,8 +1,11 @@
 # Windows Utilities
 Collection of handy Windows 10 Scripts
 
-## [ADTools_Scan_StaleWorkstations.ps1](https://github.com/userVII/Windows-Utilities/blob/master/ADTools_Scan_StaleWorkstations.ps1)
+## [ADTools_Scan_StaleWorkstations](https://github.com/userVII/Windows-Utilities/blob/master/ADTools_Scan_StaleWorkstations.ps1)
 Simple AD tool to find stale Workstation objects and do something with them. In this case, mark the description they are old.
+
+## [ADTools_RemoveSCCMAndADPC](https://github.com/userVII/Windows-Utilities/blob/master/ADTools_RemoveSCCMAndADPC.ps1)
+Use to remove both an AD PC and an SCCM workstation object if they exist
 
 ## [Scan_Win10Compliance](https://github.com/userVII/Windows-10-Utilities/blob/master/Scan_Win10Compliance.ps1)
 Scans an OU for Win 10 MDM Compliance
