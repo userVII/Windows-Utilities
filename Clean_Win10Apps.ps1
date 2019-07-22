@@ -1,6 +1,9 @@
 Set-StrictMode -Version 2.0
 <#
-# Used for Win 10 Professional app management. Enterprise doesn't need this
+# Updated for 1903
+# - Added holographic first run, may have caused weird start menu bug without it
+# - change to 3d viewer application name
+# - added game bar removal
 #>
 
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
@@ -9,27 +12,28 @@ $InstalledApps = Get-AppxPackage -AllUsers | Select-Object Name
 
 $AppList = @(
     #Default Windows 10 apps
-    "Microsoft.3DBuilder"    
+    "Microsoft.3DBuilder"       
     "Microsoft.Appconnector"
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
-    "Microsoft.BingWeather"
-    "*CortanaListenUIApp*"
     "Microsoft.CommsPhone"
     "Microsoft.ConnectivityStore"
-    "Microsoft.DesktopAppInstaller"
+    "Microsoft.GetHelp"
     "Microsoft.Getstarted"
-    "Microsoft.Windows.Holographic.*"
+    "Microsoft.Windows.HolographicFirstRun"
     "Microsoft.Messaging"
     "Microsoft.MicrosoftOfficeHub"
+    "Microsoft.Microsoft3DViewer"
+    "Microsoft.MixedReality.Portal"
     "Microsoft.NetworkSpeedTest"
-    "Microsoft.Office.OneNote"
+    "Microsoft.Office.OneNote"  
     "Microsoft.Office.Sway"
     "Microsoft.OneConnect"
     "Microsoft.People"
+    "Microsoft.Print3D"
     "Microsoft.SkypeApp"
-    "Microsoft.Wallet*"
+    "Microsoft.Wallet"
     "Microsoft.WindowsAlarms"
     "Microsoft.WindowsCamera"
     "microsoft.windowscommunicationsapps"
@@ -37,40 +41,39 @@ $AppList = @(
     "Microsoft.WindowsMaps"
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
-    "Microsoft.WindowsStore"  
+    "Microsoft.WindowsStore"
+    "Microsoft.YourPhone"    
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
 
     #Candy Crush
-    "*CandyCrushSodaSaga*"
     "*CandyCrush*"
-    "*CandyCrushSaga*" 
 
     #Minecraft
     "Microsoft.MinecraftUWP"
     
     #XBox
     "Microsoft.XboxApp"
-    "*xbox*"
-    "*XboxOneSmartGlass*"      
+    "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGamingOverlay"
+    "Microsoft.XboxIdentityProvider"
+    "Microsoft.XboxSpeechToTextOverlay"
+    "Microsoft.Xbox.TCUI"     
 
     #Non-Microsoft
     "*Twitter*"
-    "9E2F88E3.Twitter"
     "Flipboard.Flipboard"
     "ShazamEntertainmentLtd.Shazam"    
     "ClearChannelRadioDigital.iHeartRadio"
     "*Pandora*"
     "*Duolingo*"
 
-    # apps which cannot be removed using Remove-AppxPackage
-    #"Microsoft.BioEnrollment"
-    #"Microsoft.MicrosoftEdge"
-    #"Microsoft.Windows.Cortana"
-    #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
-    #"Windows.ContactSupport"
+    #Apps to keep
+    #"Microsoft.BingWeather"
+    #"Microsoft.DesktopAppInstaller"
+    #"Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.ScreenSketch"
+    #"Microsoft.StorePurchaseApp"
 )
 
 foreach($appfound in $InstalledApps){
