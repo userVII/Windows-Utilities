@@ -86,6 +86,7 @@ foreach($appfound in $InstalledApps){
             $appholder = Get-AppxPackage -Name $possibleapp -AllUsers 
             try{
                 Remove-AppxPackage $appholder -ErrorAction SilentlyContinue
+                Write-Host "`t$appholder was removed" -ForegroundColor DarkGreen
             }catch{
                 Write-Host "`t$appholder couldn't be removed" -ForegroundColor Red 
             }
@@ -94,6 +95,7 @@ foreach($appfound in $InstalledApps){
             if($null -ne $appholder2){
                 try{
                     Remove-AppxProvisionedPackage $appholder2 -Online
+                    Write-Host "`t$($appholder2.DisplayName) was removed" -ForegroundColor DarkGreen
                 }catch{                    
                      Write-Host "`tUnable to remove the online app $($appholder2.DisplayName)" -ForegroundColor DarkMagenta
                 }
