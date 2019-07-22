@@ -95,7 +95,7 @@ foreach($appfound in $InstalledApps){
                 try{
                     Remove-AppxProvisionedPackage $appholder2 -Online
                 }catch{                    
-                     Write-Host "`tUnable to remove the online app $appholder2" -ForegroundColor DarkMagenta
+                     Write-Host "`tUnable to remove the online app $($appholder2.DisplayName)" -ForegroundColor DarkMagenta
                 }
             }
         }
