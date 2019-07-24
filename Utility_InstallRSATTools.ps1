@@ -1,13 +1,12 @@
+#Get the current WSUS registry setting
 $currentWU = Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "UseWUServer" | select -ExpandProperty UseWUServer
-Set-ItemProperty "REGISTRY::HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" UseWUserver -value 0
-Get-Service wuauserv | Restart-Service
 
+#Show user the current install status
 Write-Host "You currently have the following RSAT Tools installed:"
 $installed = Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
 foreach($tool in $installed){
     Write-Host $tool.DisplayName "is currently" $tool.State
 }
-
 Write-Host ""
 
 Write-Host "Please choose which RSAT Tools to install:"
@@ -37,6 +36,10 @@ Write-Host "
     23.) Exit"
 
 $userChoice = Read-Host -Prompt "Which do ya want?"
+
+#Let the following PS commands work
+Set-ItemProperty "REGISTRY::HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" UseWUserver -value 0
+Get-Service wuauserv | Restart-Service
 
 switch ($userChoice) {
     "1"{
@@ -137,6 +140,7 @@ switch ($userChoice) {
     }
 }
 
+#Revert WSUS settings
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "UseWUServer" -Value $currentWU
 Get-Service wuauserv | Restart-Service
 
