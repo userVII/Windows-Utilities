@@ -33,6 +33,9 @@ Example XML for PNP audit route:
 ## [Clean_Win10Apps](https://github.com/userVII/Windows-10-Utilities/blob/master/Clean_Win10Apps.ps1)
 Easy way to manage bloatware on Win 10 Home and Professional. Enterprise doesn't need this and can use other Group Policy based solutions.
 
+## [RSAT Tools Installer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_InstallRSATTools.ps1)
+Console installer for RSAT Tools in case the Add/Remove feature doesn't work in your environment and you don't want to download the exe with an update
+
 ## Utility_PSFileSigners
 ### [Bulk Signer](https://github.com/userVII/Windows-10-Utilities/blob/master/Utility_BulkPSFileSigner.ps1)
 ### [Single File Signer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_SinglePSFileSigner.ps1)
@@ -42,5 +45,4 @@ Open up the Current User\Personal\Certificates
 
 Get the Thumbprint Value and plug it into the script
 
-### [RSAT Tools Installer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_InstallRSATTools.ps1)
-Console installer for RSAT Tools in case the Add/Remove feature doesn't work in your environment and you don't want to download the exe with an update
+
