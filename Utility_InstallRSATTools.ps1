@@ -68,7 +68,7 @@ switch ($userChoice) {
         break
     }
     "7"{
-        Add-WindowsCapability –online –Name “Add-WindowsCapability –online –Name “Rsat.Dns.Tools~~~~0.0.1.0””
+        Add-WindowsCapability –online –Name “Add-WindowsCapability –online –Name Rsat.Dns.Tools~~~~0.0.1.0”
         break
     }
     "8"{
