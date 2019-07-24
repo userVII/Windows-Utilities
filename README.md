@@ -41,3 +41,6 @@ If you have a code Signing Certificate installed
 Open up the Current User\Personal\Certificates
 
 Get the Thumbprint Value and plug it into the script
+
+###[RSAT Tools Installer](https://github.com/userVII/Windows-Utilities/blob/master/Utility_InstallRSATTools.ps1)
+Console installer for RSAT Tools in case the Add/Remove feature doesn't work in your environment and you don't want to download the exe with an update
