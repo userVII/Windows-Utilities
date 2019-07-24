@@ -12,28 +12,29 @@ Write-Host ""
 Write-Host "Please choose which RSAT Tools to install:"
 Write-Host "
     1.) All available tools
-    2.) RSAT: Active Directory Domain Services and Lightweight Directory Services Tools
-    3.) RSAT: BitLocker Drive Encryption Administration Utilities
-    4.) RSAT: Active Directory Certificate Services Tools
-    5.) RSAT: DHCP Server Tools
-    6.) RSAT: DNS Server Tools
-    7.) RSAT: Failover Clustering Tools
-    8.) RSAT: File Services Tools
-    9.) RSAT: Group Policy Management Tools
-    10.) RSAT: IP Address Management (IPAM) Client
-    11.) RSAT: Data Center Bridging LLDP Tools
-    12.) RSAT: Network Controller Management Tools
-    13.) RSAT: Network Load Balancing Tools
-    14.) RSAT: Remote Access Management Tools
-    15.) RSAT: Remote Desktop Services Tools
-    16.) RSAT: Server Manager
-    17.) RSAT: Shielded VM Tools
-    18.) RSAT: Storage Migration Service Management Tools
-    19.) RSAT: Storage Replica Module for Windows PowerShell
-    20.) RSAT: System Insights Module for Windows PowerShell
-    21.) RSAT: Volume Activation Tools
-    22.) RSAT: Windows Server Update Services Tools
-    23.) Exit"
+    2.) All not installed tools
+    3.) RSAT: Active Directory Domain Services and Lightweight Directory Services Tools
+    4.) RSAT: BitLocker Drive Encryption Administration Utilities
+    5.) RSAT: Active Directory Certificate Services Tools
+    6.) RSAT: DHCP Server Tools
+    7.) RSAT: DNS Server Tools
+    8.) RSAT: Failover Clustering Tools
+    9.) RSAT: File Services Tools
+    10.) RSAT: Group Policy Management Tools
+    11.) RSAT: IP Address Management (IPAM) Client
+    12.) RSAT: Data Center Bridging LLDP Tools
+    13.) RSAT: Network Controller Management Tools
+    14.) RSAT: Network Load Balancing Tools
+    15.) RSAT: Remote Access Management Tools
+    16.) RSAT: Remote Desktop Services Tools
+    17.) RSAT: Server Manager
+    18.) RSAT: Shielded VM Tools
+    19.) RSAT: Storage Migration Service Management Tools
+    20.) RSAT: Storage Replica Module for Windows PowerShell
+    21.) RSAT: System Insights Module for Windows PowerShell
+    22.) RSAT: Volume Activation Tools
+    23.) RSAT: Windows Server Update Services Tools
+    24.) Exit"
 
 $userChoice = Read-Host -Prompt "Which do ya want?"
 
@@ -43,94 +44,98 @@ Get-Service wuauserv | Restart-Service
 
 switch ($userChoice) {
     "1"{
-       Get-WindowsCapability -Online -Name RSAT*  | Add-WindowsCapability -Online; 
+       Get-WindowsCapability -Online -Name RSAT*  | Add-WindowsCapability -Online;       
        break
     }
     "2"{
+       Get-WindowsCapability -Online |? {$_.Name -like "*RSAT*" -and $_.State -eq "NotPresent"} | Add-WindowsCapability -Online 
+       break
+    }
+    "3"{
         Add-WindowsCapability –online –Name “Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0”
         break
     }
-    "3"{
+    "4"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.BitLocker.Recovery.Tools~~~~0.0.1.0”
         break
     }
-    "4"{
+    "5"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.CertificateServices.Tools~~~~0.0.1.0”
         break
     }
-    "5"{
+    "6"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.DHCP.Tools~~~~0.0.1.0”
         break
     }
-    "6"{
+    "7"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability –online –Name “Rsat.Dns.Tools~~~~0.0.1.0””
         break
     }
-    "7"{
+    "8"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0”
         break
     }
-    "8"{
+    "9"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.FileServices.Tools~~~~0.0.1.0”
         break
     }
-    "9"{
+    "10"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0”
         break
     }
-    "10"{
+    "11"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.IPAM.Client.Tools~~~~0.0.1.0”
         break
     }
-    "11"{
+    "12"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.LLDP.Tools~~~~0.0.1.0”
         break
     }
-    "12"{
+    "13"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.NetworkController.Tools~~~~0.0.1.0”
         break
     }
-    "13"{
+    "14"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.NetworkLoadBalancing.Tools~~~~0.0.1.0”
         break
     }
-    "14"{
+    "15"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.RemoteAccess.Management.Tools~~~~0.0.1.0”
         break
     }
-    "15"{
+    "16"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.RemoteDesktop.Services.Tools~~~~0.0.1.0”
         break
     }
-    "16"{
+    "17"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.ServerManager.Tools~~~~0.0.1.0”
         break
     }
-    "17"{
+    "18"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.Shielded.VM.Tools~~~~0.0.1.0”
         break
     }
-    "18"{
+    "19"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.StorageMigrationService.Management.Tools~~~~0.0.1.0”
         break
     }
-    "19"{
+    "20"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.StorageReplica.Tools~~~~0.0.1.0”
         break
     }
-    "20"{
+    "21"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.SystemInsights.Management.Tools~~~~0.0.1.0”
         break
     }
-    "21"{
+    "22"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.VolumeActivation.Tools~~~~0.0.1.0”
         break
     }
-    "22"{
+    "23"{
         Add-WindowsCapability –online –Name “Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0”
         break
     }
-    "23"{
+    "24"{
         "Exiting"
         break
     }   
