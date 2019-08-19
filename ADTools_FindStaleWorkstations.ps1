@@ -5,7 +5,7 @@ $OldAgeDescription = "***This computer has been inactive for $DaysInactive or mo
 
 $time = (Get-Date).Adddays(-($DaysInactive))
 $pclist = Get-ADComputer -SearchBase $OUtosearch -Filter {LastLogonTimeStamp -lt $time} -ResultPageSize 2000 -resultSetSize $null -Properties Name
-$pccount = $pclist.Count
+#$pccount = $pclist.Count
 $counter = 1
 
 [System.Collections.ArrayList]$test = $pclist
