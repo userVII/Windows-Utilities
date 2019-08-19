@@ -9,7 +9,7 @@ $counter = 1
 
 [System.Collections.ArrayList]$test = $pclist
 
-#Add items not on the ignore list to an array list to process
+#Remove computers on the ignore list from the array list
 foreach($nameToIgnore in $PCNamesToIgnore){
     foreach ($pc in $pclist){
         $pcName = $pc.Name
