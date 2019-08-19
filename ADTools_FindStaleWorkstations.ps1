@@ -1,12 +1,10 @@
 $DaysInactive = 180
-$OUtosearch = ""
+$OUtosearch = "" #Please enter the OU DN to search here
 $PCNamesToIgnore = @("*SCCM*", "*HYPERV*")
 $OldAgeDescription = "***This computer has been inactive for $DaysInactive or more days***"
 
 $time = (Get-Date).Adddays(-($DaysInactive))
 $pclist = Get-ADComputer -SearchBase $OUtosearch -Filter {LastLogonTimeStamp -lt $time} -ResultPageSize 2000 -resultSetSize $null -Properties Name
-#$pccount = $pclist.Count
-$counter = 1
 
 [System.Collections.ArrayList]$test = $pclist
 
@@ -28,5 +26,4 @@ foreach($i in $test){
     Write-host "$($i.Name) description is being updated to reflect old age in AD`n"
     Set-ADComputer $pc.Name -Description $OldAgeDescription
     #Disable-ADAccount -Identity $pc.Name #If you want to disable as well
-    $counter++
 }
