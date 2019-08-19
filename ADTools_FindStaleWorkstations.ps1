@@ -6,7 +6,7 @@ $OldAgeDescription = "***This computer has been inactive for $DaysInactive or mo
 $time = (Get-Date).Adddays(-($DaysInactive))
 $pclist = Get-ADComputer -SearchBase $OUtosearch -Filter {LastLogonTimeStamp -lt $time} -ResultPageSize 2000 -resultSetSize $null -Properties Name
 
-[System.Collections.ArrayList]$test = $pclist
+[System.Collections.ArrayList]$removePCHolder = $pclist
 
 #Remove computers on the ignore list from the array list
 foreach($nameToIgnore in $PCNamesToIgnore){
@@ -14,7 +14,7 @@ foreach($nameToIgnore in $PCNamesToIgnore){
         $pcName = $pc.Name
         if($pcName -like $nameToIgnore){
             Write-Host "$pcName is on the ignore list" -ForegroundColor Yellow
-            $test.Remove($pc)
+            $removePCHolder.Remove($pc)
         }else{
             #do something else
         }
@@ -22,8 +22,8 @@ foreach($nameToIgnore in $PCNamesToIgnore){
 }
 
 #Set PC Desciption for leftover old PCs
-foreach($i in $test){
-    Write-host "$($i.Name) description is being updated to reflect old age in AD`n"
+foreach($pcLeft in $removePCHolder){
+    Write-host "$($pcLeft.Name) description is being updated to reflect old age in AD`n"
     Set-ADComputer $pc.Name -Description $OldAgeDescription
     #Disable-ADAccount -Identity $pc.Name #If you want to disable as well
 }
