@@ -1,22 +1,31 @@
 $DaysInactive = 180
 $OUtosearch = ""
-$PCNamesToIgnore = @("*SCCM*")
+$PCNamesToIgnore = @("*SCCM*", "*HYPERV*")
 
 $time = (Get-Date).Adddays(-($DaysInactive))
-$pclist = Get-ADComputer -SearchBase $OUtosearch -Filter {LastLogonTimeStamp -lt $time} -ResultPageSize 2000 -resultSetSize $null -Properties Name, OperatingSystem, SamAccountName, DistinguishedName
+$pclist = Get-ADComputer -SearchBase $OUtosearch -Filter {LastLogonTimeStamp -lt $time} -ResultPageSize 2000 -resultSetSize $null -Properties Name
 $pccount = $pclist.Count
 $counter = 1
 
-foreach ($pc in $pclist){
-    Write-Progress -Activity "Updating PC description $counter / $pccount" -status "Working on $($pc.Name)"  -percentComplete (($counter / $pccount)*100)
-    $pcName = $pc.Name
-    foreach($ignoreName in $PCNamesToIgnore){
-        if($pcName -like $ignoreName){
+[System.Collections.ArrayList]$test = $pclist
+
+#Add items not on the ignore list to an array list to process
+foreach($nameToIgnore in $PCNamesToIgnore){
+    foreach ($pc in $pclist){
+        $pcName = $pc.Name
+        if($pcName -like $nameToIgnore){
             Write-Host "$pcName is on the ignore list" -ForegroundColor Yellow
-        }else{            
-            Write-Host "$($pc.Name) is being updated"
-            Set-ADComputer $pc.Name -Description "***This computer has been inactive for $DaysInactive or more days***"
+            $test.Remove($pc)
+        }else{
+            #do something else
         }
     }
+}
+
+#Set PC Desciption for leftover old PCs
+foreach($i in $test){
+    Write-host "$($i.Name) is being updated" 
+    Set-ADComputer $pc.Name -Description "***This computer has been inactive for $DaysInactive or more days***"
+    #Disable-ADAccount -Identity $pc.Name #If you want to disable as well
     $counter++
 }
