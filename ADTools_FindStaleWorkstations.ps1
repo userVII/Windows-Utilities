@@ -24,7 +24,7 @@ foreach($nameToIgnore in $PCNamesToIgnore){
 
 #Set PC Desciption for leftover old PCs
 foreach($i in $test){
-    Write-host "$($i.Name) is being updated" 
+    Write-host "$($i.Name) description is being updated to reflect old age in AD`n"
     Set-ADComputer $pc.Name -Description "***This computer has been inactive for $DaysInactive or more days***"
     #Disable-ADAccount -Identity $pc.Name #If you want to disable as well
     $counter++
