@@ -89,7 +89,7 @@ function SCCMInitializer(){
     # Customizations
     $initParams = @{}
 
-    Write-Host "Connecting to the SCCM coonsole..." -ForegroundColor green
+    Write-Host "Connecting to the SCCM console..." -ForegroundColor green
     Write-Host "SiteCode: $SiteCode"
     Write-Host "Provider Machine Name: $ProviderMachineName"
     Write-Host "Collection ID: $CollectionID"
