@@ -64,14 +64,6 @@ function DisplayPopup(){
     $wshell.Popup($PopupText,0,$PopupTitle,0x0)
 }
 
-function ManipulateADComputerObject(){
-    Param(
-        [Parameter(Position=0,mandatory=$true)]
-        [string] $ComputerName   
-    )
-
-}
-
 function GetADComputerObjectInformation(){
     Param(
         [Parameter(Position=0,mandatory=$true)]
